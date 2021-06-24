@@ -14,7 +14,6 @@ node{
         stage('list the created build file') {
             script {
                     sh "ls build/libs/"
-                }
             }
         }
         stage('Remove old jar from DOCKER') {
@@ -55,5 +54,4 @@ node{
                 echo currentBuild.result
             }
        
-    }
 }
