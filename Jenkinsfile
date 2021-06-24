@@ -38,8 +38,8 @@ node{
         }
         stage('deploying on microk8s') {
             script {
-                    sh "sudo docker login -u '10141730' -p 'Infosys@2020' docker.io"
-                    sh "sudo docker run -it -d microk8s:v_${BUILD_NUMBER}"
+                    sh "sudo docker rm -f xyz"
+                    sh "sudo docker run -it --name xyz -d -p 8090:8080 10141730/microk8s:v_${BUILD_NUMBER}"
                     sh "sudo docker images > unused_images_cid"
                 }
         }
