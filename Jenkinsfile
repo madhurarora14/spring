@@ -38,8 +38,8 @@ node{
         }
         stage('deploying on microk8s') {
             script {
-                    sh "sudo docker rm -f xyz"
-                    sh "sudo docker run -it --name xyz -d -p 8090:8080 10141730/microk8s:v_${BUILD_NUMBER}"
+                    sh "sudo microk8s.helm3 upgrade --install microk8s --set image.tag=v_${BUILD_NUMBER} /home/ubuntu/kubernets-poc/"
+                    sh "sudo microk8s.kubectl rollout status deployment.apps/microk8s-kubernets-poc"
                     sh "sudo docker images > unused_images_cid"
                 }
         }
