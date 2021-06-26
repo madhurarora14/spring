@@ -6,11 +6,7 @@ node{
                     sh "whoami"
                 }
         }
-        stage('create build') {
-            script {
-                    sh "./gradlew clean build"
-                }
-        }
+       
         stage('list the created build file') {
             script {
                     sh "ls build/libs/"
@@ -38,7 +34,7 @@ node{
         }
         stage('deploying on microk8s') {
             script {
-                    sh "sudo microk8s.helm3 upgrade --install microk8s --set image.tag=v_${BUILD_NUMBER} /home/ubuntu/kubernets-poc/"
+                    sh "sudo microk8s.helm3 upgrade --install microk8s --set image.tag=v_${BUILD_NUMBER} /home/madhur/kubernets-poc/"
                     sh "sudo microk8s.kubectl rollout status deployment.apps/microk8s-kubernets-poc"
                     sh "sudo docker images > unused_images_cid"
                 }
