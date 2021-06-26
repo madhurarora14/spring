@@ -5,6 +5,11 @@ node{
                     sh "pwd"
                     sh "whoami"
                 }
+        } 
+        stage('create build') {
+            script {
+                    sh "./gradlew build"
+                }
         }
        
         stage('list the created build file') {
