@@ -7,8 +7,7 @@ node{
                 }
         } 
         stage('create build') {
-            script {
-                    sh "cd /Desktop/ENVEU/springboot-poc-microk8s/"
+                script {
                     sh "./gradlew clean build"
                 }
         }
