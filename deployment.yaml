@@ -18,4 +18,4 @@ spec:
    - name: microk8scontainer
      image: microk8s:v_${BUILD_NUMBER}
      ports:
-     - containerPort: 8081
+     - containerPort: 8080
