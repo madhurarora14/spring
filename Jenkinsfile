@@ -63,6 +63,7 @@ pipeline {
             steps {
                 script {
                     sh "cd DOCKER; sudo docker images -a -q"
+                    sh "sudo docker rmi 10141730/microk8s:v_{BUILDNUMBER-1}"
                 }
             }
         }
