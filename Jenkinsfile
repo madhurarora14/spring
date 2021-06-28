@@ -8,7 +8,7 @@ node{
         } 
         stage('create build') {
                 script {
-                    sh "./gradlew clean build"
+                    sh "/home/madhur/spring/gradlew clean build"
                 }
         }
        
