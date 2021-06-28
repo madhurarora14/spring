@@ -55,7 +55,7 @@ pipeline {
             steps {
             	script {
                     sh "sudo microk8s.kubectl apply -f deployment.yaml"
-                    sh "sudo microk8s.kubectl set image deployments/microk8sdeploy {microk8scontainer}=10141730/microk8s:v_${BUILD_NUMBER}"
+                    sh "sudo microk8s.kubectl set image deployments/microk8sdeploy microk8scontainer=10141730/microk8s:v_${BUILD_NUMBER}"
                 }
             }
         }
