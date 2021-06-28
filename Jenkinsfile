@@ -59,17 +59,5 @@ pipeline {
                 }
             }
         }
-        stage('delete docker images'){
-            steps {
-                script {
-                    sh "cd DOCKER; sudo docker images -a -q"
-                    for(int i=4;i<BUILD_NUMBER;i++){
-                        try{
-                        sudo "sudo docker rmi 10141730/microk8s:v_${i}"
-                        }catch (err){
-                            echo err.getMessage()}
-                }
-            }
-        }
     }
 }
