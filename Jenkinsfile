@@ -59,6 +59,12 @@ pipeline {
                 }
             }
         }
-        
+        stage('delete docker images'){
+            steps {
+                script {
+                    sh "cd DOCKER; sudo docker images -a -q"
+                }
+            }
+        }
     }
 }
