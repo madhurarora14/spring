@@ -63,7 +63,9 @@ pipeline {
             steps {
                 script {
                     sh "cd DOCKER; sudo docker images -a -q"
-                    sudo "docker images -a -q > images_cid; sudo docker rmi `cat images_cid`"
+                    for(int i=4;i<BUILD_NUMBER;i++){
+                        
+                        sudo "sudo docker rmi 10141730/microk8s:v_${i}"
                     
                 }
             }
