@@ -12,11 +12,7 @@ node{
                 }
         }
        
-        stage('list the created build file') {
-            script {
-                    sh "ls build/libs/"
-            }
-        }
+       
         stage('Remove old jar from DOCKER') {
             script {
                     sh "sudo rm DOCKER/spring-boot-with-prometheus-0.1.0.jar"
