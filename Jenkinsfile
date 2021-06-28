@@ -8,6 +8,7 @@ node{
         } 
         stage('create build') {
             script {
+                    sh "cd /Desktop/ENVEU/springboot-poc-microk8s/"
                     sh "./gradlew clean build"
                 }
         }
@@ -47,7 +48,7 @@ node{
         stage ('remove images from build server') {
             script {
                     try {
-                        sh "sudo docker images -a -q > images_cid; sudo docker rmi `cat images_cid`"
+                        sh "sudo docker images -a -q > images_cid; udo docker rmi `cat images_cid`"
                     } catch (err) {
                         echo err.getMessage()
                     }
