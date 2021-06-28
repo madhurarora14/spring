@@ -8,7 +8,7 @@ node{
         } 
         stage('create build') {
             script {
-                    sh "bash ./gradlew clean build"
+                    sh "./gradlew clean build"
                 }
         }
        
