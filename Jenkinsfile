@@ -55,7 +55,7 @@ pipeline {
             steps {
             	script {
                     sh "cd /home/madhur/"
-                    sh "sudo microk8s.kubectl helm3 install demochart demochart/ --set image.tag=v_${BUILD_NUMBER}"
+                    sh "sudo microk8s helm3 install demochart demochart/ --set image.tag=v_${BUILD_NUMBER}"
                     }
             }
         }
