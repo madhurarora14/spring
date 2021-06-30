@@ -54,8 +54,8 @@ pipeline {
         stage('deploying on microk8s') {
             steps {
             	script {
-                    sh "cd /home/madhur/demochart/"
-                    sh "sudo microk8s.helm3 install demochart demochart/ --set image.tag=v_${BUILD_NUMBER}"
+                    sh "cd /home/madhur/"
+                    sh "sudo microk8s.helm3 upgrade --install demochart /home/madhur/demochart/ --set image.tag=v_${BUILD_NUMBER}"
                     }
             }
         }
