@@ -54,9 +54,9 @@ pipeline {
         stage('deploying on microk8s') {
             steps {
             	script {
-                    sh "sudo microk8s.kubectl apply -f deployment.yaml"
-                    sh "sudo microk8s.kubectl set image deployments/microk8sdeploy microk8scontainer=10141730/microk8s:v_${BUILD_NUMBER}"
-                }
+                    sh "cd /home/madhur/"
+                    sh "sudo microk8s.kubectl helm3 install demochart demochart/ --set image.tag=v_${BUILD_NUMBER}"
+                    }
             }
         }
     }
